@@ -1,5 +1,5 @@
 int signalPin = A0;
-int touchPin = A1;
+int touchPin = A5;
 
 long lastTime = 0;
 long period = 10;
@@ -16,5 +16,9 @@ void loop()
 {
     float truthVal = analogRead(signalPin);
     float touchVal = analogRead(touchPin);
-    Serial.println("1000,%f,%f", truthVal, touchVal);
+    Serial.print("1000,");
+    Serial.print(truthVal);
+    Serial.print(",");
+    Serial.print(touchVal);
+    Serial.println();
 }
