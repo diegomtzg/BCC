@@ -1,6 +1,6 @@
 #include "cppQueue.h"
 
-#define SLIDING_WINDOW_SIZE 30
+#define SLIDING_WINDOW_SIZE 20
 
 float runningMean = 0;
 int signalPin = A0;
@@ -32,7 +32,7 @@ void loop() {
 }
 
 void plotData(float val1, float val2) {
-  Serial.print("100,");
+  Serial.print("20,");
   Serial.print(val1);
   Serial.print(",");
   Serial.print(val2);
