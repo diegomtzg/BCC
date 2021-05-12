@@ -1,4 +1,4 @@
-int outputPin = D7;
+int outputPin = 8;
 
 long lastTime = 0;
 long period = 1000;
@@ -8,7 +8,7 @@ int currBit = byteLength - 1;
 bool nextBit;
 
 // 8 bit identifiers
-char id = 0b0101010;
+char id = 'A';
 
 void setup()
 {
