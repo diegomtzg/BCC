@@ -47,6 +47,13 @@ void loop() {
       }
 
       Serial.println(readVal);
+
+      // Example usage for demo, lets Malika in but not Andy:
+      if (readVal == 'M') {
+        // Set lights to green
+      } else if (readVal == 'A') {
+        // Set lights to red
+      }
     }
   }
 
