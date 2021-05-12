@@ -2,6 +2,7 @@
 
 #define SLIDING_WINDOW_SIZE 20
 #define BIT_THRESHOLD 7
+#define PERIOD 1000
 
 enum Mode { synchronizing, reading };
 
@@ -9,7 +10,6 @@ float runningMean = 0;
 int touchPin = A5;
 long lastTime = 0;
 long lastTick = 0;
-long period = 1000;
 
 Mode currMode;
 float lastVal = 0;
@@ -36,8 +36,8 @@ void loop() {
 
   if (currMode == reading) {
     long currTime = millis();
-    if (currTime - lastTick > period) {
-      // A full period has passed, read new value.
+    if (currTime - lastTick > PERIOD) {
+      // A full PERIOD has passed, read new value.
       lastTick = currTime; 
       
       // Update read value
@@ -77,8 +77,8 @@ bool bitChanged(float oldVal, float currVal) {
 }
 
 // Logic
-// If value changed, start period timer (synchronize signals)
-// Then, after each period, check value to read bits.
+// If value changed, start PERIOD timer (synchronize signals)
+// Then, after each PERIOD, check value to read bits.
 // Accumulate bits and check until it's M or A.
 
 void plotData(float val1, float val2) {

@@ -1,14 +1,15 @@
+#define PERIOD 1000
+
 int outputPin = 8;
 
 long lastTime = 0;
-long period = 1000;
 
 int byteLength = 8;
 int currBit = byteLength - 1;
 bool nextBit;
 
 // 8 bit identifiers
-char id = 'A';
+char id = 'A'; // TODO: Change id as necessary
 
 void setup()
 {
@@ -23,7 +24,7 @@ void loop()
 {
 
     // Update bit being sent once every second.
-    if (millis() - lastTime > period)
+    if (millis() - lastTime > PERIOD)
     {
         char mask = 1 << currBit;
         currBit--;
